@@ -1,0 +1,32 @@
+body{
+    background-image: url(image/IMG-20210919-WA0063.jpg);
+}
+#bigDiv{
+    background-color: blue;
+    padding: 15px;
+    border-radius: 10px;
+}
+#display{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px;
+
+}
+.text{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+.signUp{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#button{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    background-color: deeppink; 
+}
+

@@ -55,8 +55,6 @@ function signIn(){
 }
 
 
-
-
 for (var index = 0; index < allStudents.length; index++) {
     myTable.innerHTML += `
     <tr>

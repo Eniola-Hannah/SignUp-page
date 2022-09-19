@@ -62,8 +62,8 @@ for (var index = 0; index < allStudents.length; index++) {
         <td>${allStudents[index].firstname}</td>
         <td>${allStudents[index].lastname}</td>
         <td>
-            <button class="btn btn-danger"> Delete</button>
-            <button class="btn btn-success"> Edit</button>
+            <button class="btn btn-danger" onclick="deleteStudent()> Delete</button>
+            <button class="btn btn-success" onclick="editStudent()> Edit</button>
         </td> 
     </tr>`
     // console.log(allStudents[index].firstname)

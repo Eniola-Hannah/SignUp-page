@@ -55,6 +55,7 @@ function signIn(){
 }
 
 const loadStudent=()=>{
+    myTable.innerHTML = ""
     allStudents.map((student,index)=>{
         myTable.innerHTML += `
         <tr>

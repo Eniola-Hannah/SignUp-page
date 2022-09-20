@@ -60,9 +60,11 @@ allStudents.map((student,index)=>{
         <td> ${index}</td>
         <td>${student.firstname}</td>
         <td>${student.lastname}</td>
+        <td>${student.email}</td>
+        <td>${student.matricNumber}</td>
         <td>
-            <button class="btn btn-danger" onclick="deleteStudent()> Delete</button>
-            <button class="btn btn-success" onclick="editStudent()> Edit</button>
+            <button class="btn btn-danger" onclick="deleteStudent(${index})> Delete</button>
+            <button class="btn btn-success" onclick="editStudent(${index})> Edit</button>
         </td> 
     </tr>`
 })
@@ -77,6 +79,7 @@ function searchStudent(){
     display.innerHTML = "First name;  "+ allStudents[index.value].firstname + ", <br>Last name;  " +allStudents[index.value].lastname + ", <br>Email;  " + allStudents[index.value].email + ", <br>Matric No.;  " + allStudents[index.value].matricNumber + ", <br>Signed up at " + allStudents[index.value].date
 }
 
-const deleteStudent=(studentIndex)=>{
-   
+const deleteStudent=(index)=>{
+    let filteredStudent = allStudents.filter((_, ind) => (index != ind))
+    allStudents = filteredStudent
 }

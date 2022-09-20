@@ -54,20 +54,19 @@ function signIn(){
     signinPassword.value = ""
 }
 
-
-for (var index = 0; index < allStudents.length; index++) {
+allStudents.map((student,index)=>{
     myTable.innerHTML += `
     <tr>
-        <td> ${index+1}</td>
-        <td>${allStudents[index].firstname}</td>
-        <td>${allStudents[index].lastname}</td>
+        <td> ${index}</td>
+        <td>${student.firstname}</td>
+        <td>${student.lastname}</td>
         <td>
             <button class="btn btn-danger" onclick="deleteStudent()> Delete</button>
             <button class="btn btn-success" onclick="editStudent()> Edit</button>
         </td> 
     </tr>`
-    // console.log(allStudents[index].firstname)
-}   
+})
+
 
 
 function search(){
@@ -79,5 +78,5 @@ function searchStudent(){
 }
 
 const deleteStudent=(studentIndex)=>{
-    
+   
 }

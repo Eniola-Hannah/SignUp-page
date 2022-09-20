@@ -84,5 +84,5 @@ function searchStudent(){
 const deleteStudent=(index)=>{
     let filteredStudent = allStudents.filter((_, ind) => (index != ind))
     allStudents = filteredStudent
-    console.log(allStudents)
+    loadStudent()
 }

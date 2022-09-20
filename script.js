@@ -18,7 +18,7 @@ function addStudent(){
         display.innerText = "Fill out all unfilled fields"
     }else{
         allStudents.push(signUp)
-        console.log(allStudents)
+        // save to localstorage but change it to a string format first since L.S saves only string
         localStorage.setItem("studentDetails", JSON.stringify(allStudents))
         display.innerHTML = "Dear "+ signUp.firstname + "<br> sign up to the school's portal was successful <br> at " + signUp.date
 
@@ -36,6 +36,7 @@ function signIn(){
     var logInName = userName.value
     var logInPassword = signinPassword.value
     var logIn = false
+    // get studentDetails 4rm localstorage but 'parse(change)' it back to its normal format(object)
     var allStudents = JSON.parse(localStorage.getItem("studentDetails"))
 
     for (let index = 0; index < allStudents.length; index++) {

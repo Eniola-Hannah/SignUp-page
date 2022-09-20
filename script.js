@@ -55,6 +55,7 @@ function signIn(){
 }
 
 const loadStudent=()=>{
+    // onclick of function delete, let it assigned the table empty first before loading the new element
     myTable.innerHTML = ""
     allStudents.map((student,index)=>{
         myTable.innerHTML += `
@@ -85,5 +86,6 @@ function searchStudent(){
 const deleteStudent=(index)=>{
     let filteredStudent = allStudents.filter((_, ind) => (index != ind))
     allStudents = filteredStudent
+    // After onclick of delete, let it then call the Table of the student again
     loadStudent()
 }

@@ -54,20 +54,22 @@ function signIn(){
     signinPassword.value = ""
 }
 
-allStudents.map((student,index)=>{
-    myTable.innerHTML += `
-    <tr>
-        <td> ${index}</td>
-        <td>${student.firstname}</td>
-        <td>${student.lastname}</td>
-        <td>${student.email}</td>
-        <td>${student.matricNumber}</td>
-        <td>
-            <button class="btn btn-danger" onclick="deleteStudent(${index})> Delete</button>
-            <button class="btn btn-success" onclick="editStudent(${index})> Edit</button>
-        </td> 
-    </tr>`
-})
+const loadStudent=()=>{
+    allStudents.map((student,index)=>{
+        myTable.innerHTML += `
+        <tr>
+            <td> ${index+1}</td>
+            <td>${student.firstname}</td>
+            <td>${student.lastname}</td>
+            <td>${student.email}</td>
+            <td>${student.matricNumber}</td>
+            <td>
+                <button class="btn btn-danger" onclick="deleteStudent(${index})"> Delete</button>
+                <button class="btn btn-primary" onclick="editStudent(${index})"> Edit</button>
+            </td> 
+        </tr>`
+    })
+}
 
 
 
@@ -82,4 +84,5 @@ function searchStudent(){
 const deleteStudent=(index)=>{
     let filteredStudent = allStudents.filter((_, ind) => (index != ind))
     allStudents = filteredStudent
+    console.log(allStudents)
 }

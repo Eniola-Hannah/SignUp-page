@@ -58,6 +58,17 @@ function signIn(){
 const loadStudent=()=>{
     // onclick of function delete, let it assigned the table empty first before loading the new element
     myTable.innerHTML = ""
+    // had to brought the header here coz, the header keeps disappearing if left in the html
+    myTable.innerHTML = `
+        <tr>
+            <td>S/N</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Matric Number</td>
+            <td>Actions</td>
+        </tr>
+    `
     allStudents.map((student,index)=>{
         myTable.innerHTML += `
         <tr>

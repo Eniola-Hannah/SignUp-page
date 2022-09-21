@@ -95,9 +95,17 @@ function searchStudent(){
     display.innerHTML = "First name;  "+ allStudents[index.value].firstname + ", <br>Last name;  " +allStudents[index.value].lastname + ", <br>Email;  " + allStudents[index.value].email + ", <br>Matric No.;  " + allStudents[index.value].matricNumber + ", <br>Signed up at " + allStudents[index.value].date
 }
 
-const deleteStudent=(index)=>{
-    let filteredStudent = allStudents.filter((_, ind) => (index != ind))
-    allStudents = filteredStudent
-    // After onclick of delete, let it then call the Table of the student again
-    loadStudent()
+const deleteStudent =(index)=>{
+    confirmDeleteStudent = confirm("DANGEROUS OPERATION!!! \nDO YOU REALLY WANTS TO DELETE THIS STUDENT")
+    if (confirmDeleteStudent==true){
+        let filteredStudent = allStudents.filter((_, ind) => (index != ind))
+        allStudents = filteredStudent
+        // After onclick of delete, let it then call the Table of the student again
+        loadStudent()
+
+        return true
+    }else{
+        return false
+    }
+
 }

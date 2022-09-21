@@ -102,6 +102,7 @@ const deleteStudent =(index)=>{
         allStudents = filteredStudent
         // After onclick of delete, let it then call the Table of the student again
         loadStudent()
+        localStorage.setItem("studentDetails", JSON.stringify(allStudents))
 
         return true
     }else{

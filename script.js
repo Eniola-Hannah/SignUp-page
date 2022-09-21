@@ -110,6 +110,10 @@ const deleteStudent =(index)=>{
     }
 }
 
-const editStudent=()=>{
-    
+const editStudent=(index)=>{
+    allStudents[index] = {
+        firstname: "Ladoke",
+        lastname: "Akintola"
+
+    }
 }

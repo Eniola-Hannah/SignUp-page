@@ -111,9 +111,9 @@ const deleteStudent =(index)=>{
 }
 
 const editStudent=(index)=>{
-    allStudents[index] = {
-        firstname: "Ladoke",
-        lastname: "Akintola"
+    // allStudents[index] = {
+    //     firstname: "Ladoke",
+    //     lastname: "Akintola"
 
-    }
+    // }
 }

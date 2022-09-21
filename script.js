@@ -96,7 +96,7 @@ function searchStudent(){
 }
 
 const deleteStudent =(index)=>{
-    confirmDeleteStudent = confirm("DANGEROUS OPERATION!!! \nDO YOU REALLY WANTS TO DELETE THIS STUDENT")
+    confirmDeleteStudent = confirm("DANGEROUS OPERATION!!! \nDO YOU REALLY WANTS TO DELETE THIS STUDENT???")
     if (confirmDeleteStudent==true){
         let filteredStudent = allStudents.filter((_, ind) => (index != ind))
         allStudents = filteredStudent
@@ -108,5 +108,8 @@ const deleteStudent =(index)=>{
     }else{
         return false
     }
+}
 
+const editStudent=()=>{
+    
 }

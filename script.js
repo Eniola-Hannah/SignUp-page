@@ -78,6 +78,7 @@ const loadStudent=()=>{
             <td>${student.firstname}</td>
             <td>${student.lastname}</td>
             <td>${student.email}</td>
+            <td>${student.phonenumber}</td>
             <td>${student.matricNumber}</td>
             <td>
                 <button class="btn btn-danger" onclick="deleteStudent(${index})"> Delete</button>
@@ -126,6 +127,7 @@ const editNow=()=>{
     firstName.value = editActive[getIndex].firstname
     lastName.value = editActive[getIndex].lastname
     stdEmail.value = editActive[getIndex].email
+    stdEmail.value = editActive[getIndex].phonenumber
 
 }
 

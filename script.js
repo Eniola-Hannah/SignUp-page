@@ -111,16 +111,21 @@ const deleteStudent =(index)=>{
 }
 
 const editStudent=(index)=>{
+    // had to save to local-storage first coz the index keeps disapperaing when it gets to the editStudent page
     localStorage.setItem("activeIndex", JSON.stringify(index))
     window.location.href = "editStudent.html"
     
 }
 
-const editDone=()=>{
-    var editIndex = JSON.parse(localStorage.getItem("activeIndex"))
+const editNow=()=>{
+    var getIndex = JSON.parse(localStorage.getItem("activeIndex"))
     var editActive = JSON.parse(localStorage.getItem("studentDetails"))
-    firstName.value = editActive[editIndex].firstname
-    lastName.value = editActive[editIndex].lastname
-    stdEmail.value = editActive[editIndex].email
+    firstName.value = editActive[getIndex].firstname
+    lastName.value = editActive[getIndex].lastname
+    stdEmail.value = editActive[getIndex].email
+
+}
+
+const editDone=()=>{
 
 }

@@ -57,17 +57,17 @@ function signIn(){
     var logInName = userName.value
     var logInPassword = signinPassword.value
     var logIn = false
-    // get studentDetails 4rm localstorage but 'parse(change)' it back to its normal format(object)
-    var allStudents = JSON.parse(localStorage.getItem("studentDetails"))
 
     for (let index = 0; index < allStudents.length; index++) {
         if ((logInName == allStudents[index].firstname||logInName==allStudents[index].email) && logInPassword == allStudents[index].password){
             logIn = true
             currentStudent = allStudents[index]
+            currentStudentIndex = index
         }
     }
     if(logIn){
         localStorage.setItem('currentUser', JSON.stringify(currentStudent))
+        localStorage.setItem('currentUserIndex', JSON.stringify(currentStudentIndex))
         window.location.href = "studentTable.html"
     }else{
         display.innerText = "Incorrect Name or Password"
@@ -110,37 +110,47 @@ const loadStudent=()=>{
     })
 }
 
-const deleteStudent =(index)=>{
-    confirmDeleteStudent = confirm("DANGEROUS OPERATION!!! \nDO YOU REALLY WANTS TO DELETE THIS STUDENT???")
-    if (confirmDeleteStudent==true){
-        let filteredStudent = allStudents.filter((_, ind) => (index != ind))
-        allStudents = filteredStudent
-        // After onclick of delete, let it then call the Table of the student again
-        loadStudent()
-        localStorage.setItem("studentDetails", JSON.stringify(allStudents))
 
-        return true
+currentUserI = JSON.parse(localStorage.getItem("currentUserIndex"))
+const deleteStudent =(index)=>{
+    if (currentUserI == index) {
+        confirmDeleteStudent = confirm("DANGEROUS OPERATION!!! \nDO YOU REALLY WANTS TO DELETE THIS STUDENT???")
+        if (confirmDeleteStudent==true){
+            let filteredStudent = allStudents.filter((_, ind) => (index != ind))
+            allStudents = filteredStudent
+            // After onclick of delete, let it then call the Table of the student again
+            loadStudent()
+            localStorage.setItem("studentDetails", JSON.stringify(allStudents))
+            
+            return true
+        }else{
+            return false
+        }
     }else{
-        return false
+        alert("Whoops!!! \nYou can only Delete your Info")
     }
 }
 
 const editStudent=(index)=>{
-    // had to save to local-storage first coz the index keeps disapperaing when it gets to the editStudent page
-    localStorage.setItem("activeIndex", JSON.stringify(index))
-    window.location.href = "editStudent.html"
-    
+    if (currentUserI == index) {
+        window.location.href = "editStudent.html"
+    }else{
+        alert("Whoops!!! \nYou can only Edit your Info")
+    }
 }
+
+
 
 let getIndex;
 const editNow=()=>{
-    getIndex = JSON.parse(localStorage.getItem("activeIndex"))
-    var editActive = JSON.parse(localStorage.getItem("studentDetails"))
-    firstName.value = editActive[getIndex].firstname
-    lastName.value = editActive[getIndex].lastname
-    stdEmail.value = editActive[getIndex].email
-    stdEmail.value = editActive[getIndex].phonenumber
-
+    // getIndex = JSON.parse(localStorage.getItem("currentUser"))
+    // console.log(getIndex.firstname)
+    // firstName.value = editActive[getIndex].firstname
+    // lastName.value = editActive[getIndex].lastname
+    // stdEmail.value = editActive[getIndex].email
+    // stdEmail.value = editActive[getIndex].phonenumber
+    
+    // var editActive = JSON.parse(localStorage.getItem("studentDetails"))
 }
 
 const editDone=()=>{

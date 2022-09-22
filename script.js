@@ -4,17 +4,19 @@ if (localStorage.studentDetails){
 }
 
 function addStudent(){
+    
     var signUp = {
         firstname:firstName.value,
         lastname:lastName.value,
         email:useremail.value,
+        phonenumber:phoneNumber.value,
         password:userPassword.value,
         date:new Date(),
         matricNumber:"SQI"+ Math.round(Math.random()*10000)
 
     }
 
-    if(signUp.firstname==""||signUp.lastname==""||signUp.email==""||signUp.password==""){
+    if(signUp.firstname==""||signUp.lastname==""||signUp.phonenumber==""||signUp.email==""||signUp.password==""){
         display.innerText = "Fill out all unfilled fields"
     }else{
         allStudents.push(signUp)
@@ -26,7 +28,7 @@ function addStudent(){
         firstName.value = ""
         lastName.value = ""
         useremail.value = ""
-        firstName.value = ""
+        phoneNumber.value,
         userPassword.value = ""
         
     }
@@ -117,8 +119,9 @@ const editStudent=(index)=>{
     
 }
 
+let getIndex;
 const editNow=()=>{
-    var getIndex = JSON.parse(localStorage.getItem("activeIndex"))
+    getIndex = JSON.parse(localStorage.getItem("activeIndex"))
     var editActive = JSON.parse(localStorage.getItem("studentDetails"))
     firstName.value = editActive[getIndex].firstname
     lastName.value = editActive[getIndex].lastname

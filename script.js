@@ -110,16 +110,6 @@ const loadStudent=()=>{
     })
 }
 
-
-
-function search(){
-    window.location.href = "search.html"
-}
-function searchStudent(){
-    allStudents = JSON.parse(localStorage.getItem("studentDetails"))
-    display.innerHTML = "First name;  "+ allStudents[index.value].firstname + ", <br>Last name;  " +allStudents[index.value].lastname + ", <br>Email;  " + allStudents[index.value].email + ", <br>Matric No.;  " + allStudents[index.value].matricNumber + ", <br>Signed up at " + allStudents[index.value].date
-}
-
 const deleteStudent =(index)=>{
     confirmDeleteStudent = confirm("DANGEROUS OPERATION!!! \nDO YOU REALLY WANTS TO DELETE THIS STUDENT???")
     if (confirmDeleteStudent==true){

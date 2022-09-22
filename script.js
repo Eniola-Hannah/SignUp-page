@@ -111,9 +111,16 @@ const deleteStudent =(index)=>{
 }
 
 const editStudent=(index)=>{
-    // allStudents[index] = {
-    //     firstname: "Ladoke",
-    //     lastname: "Akintola"
+    localStorage.setItem("activeIndex", JSON.stringify(index))
+    window.location.href = "editStudent.html"
+    
+}
 
-    // }
+const editDone=()=>{
+    var editIndex = JSON.parse(localStorage.getItem("activeIndex"))
+    var editActive = JSON.parse(localStorage.getItem("studentDetails"))
+    firstName.value = editActive[editIndex].firstname
+    lastName.value = editActive[editIndex].lastname
+    stdEmail.value = editActive[editIndex].email
+
 }

@@ -4,6 +4,10 @@ if (localStorage.studentDetails){
 }
 
 function addStudent(){
+    let regexForName = /^[\w]{1,}$/
+    let regexForEmail = /^(([\w]+)([@])([\w]+)([.])([a-zA-Z]{1,5})([.][\w]{1,5})?)$/
+    let regexForPhonenumber = /^[\d]{11}$/
+    let regexForPassword = /^([\w]{4,})([\d]{3,})$/
     
     var signUp = {
         firstname:firstName.value,
@@ -15,9 +19,24 @@ function addStudent(){
         matricNumber:"SQI"+ Math.round(Math.random()*10000)
 
     }
-
+    
     if(signUp.firstname==""||signUp.lastname==""||signUp.phonenumber==""||signUp.email==""||signUp.password==""){
         display.innerText = "Fill out all unfilled fields"
+    }
+    else if(regexForName.test(firstName.value) == false){
+        display.innerText = "type in a correct name!"
+    }
+    else if(regexForName.test(lastName.value)==false){
+        display.innerText = "type  in a correct name!"
+    }
+    else if(regexForEmail.test(useremail.value)== false){
+        display.innerText = "input a valid email!"
+    }
+    else if(regexForPhonenumber.test(phoneNumber.value)==false){
+        display.innerText = "phonenumber must be 11 digits"
+    }
+    else if(regexForPassword.test(userPassword.value)==false){
+        display.innerText = "password must contain at least 4 letter and 3 digits"
     }else{
         allStudents.push(signUp)
         // save to localstorage but change it to a string format first since L.S saves only string
@@ -28,7 +47,7 @@ function addStudent(){
         firstName.value = ""
         lastName.value = ""
         useremail.value = ""
-        phoneNumber.value,
+        phoneNumber.value = ""
         userPassword.value = ""
         
     }
@@ -67,6 +86,7 @@ const loadStudent=()=>{
             <td>First Name</td>
             <td>Last Name</td>
             <td>Email</td>
+            <td>Phone Number</td>
             <td>Matric Number</td>
             <td>Actions</td>
         </tr>

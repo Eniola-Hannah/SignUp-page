@@ -27,7 +27,7 @@ function addStudent(){
         display.innerText = "type in a correct name!"
     }
     else if(regexForName.test(lastName.value)==false){
-        display.innerText = "type  in a correct name!"
+        display.innerText = "type in a correct name!"
     }
     else if(regexForEmail.test(useremail.value)== false){
         display.innerText = "input a valid email!"
@@ -63,9 +63,11 @@ function signIn(){
     for (let index = 0; index < allStudents.length; index++) {
         if ((logInName == allStudents[index].firstname||logInName==allStudents[index].email) && logInPassword == allStudents[index].password){
             logIn = true
+            currentStudent = allStudents[index]
         }
     }
     if(logIn){
+        localStorage.setItem('currentUser', JSON.stringify(currentStudent))
         window.location.href = "studentTable.html"
     }else{
         display.innerText = "Incorrect Name or Password"

@@ -9,7 +9,7 @@ function addStudent(){
     let regexForPhonenumber = /^[\d]{11}$/
     let regexForPassword = /^([\w]{4,})([\d]{3,})$/
     
-    var signUp = {
+    let signUp = {
         firstname:firstName.value,
         lastname:lastName.value,
         email:useremail.value,
@@ -54,9 +54,9 @@ function addStudent(){
 }
 
 function signIn(){
-    var logInName = userName.value
-    var logInPassword = signinPassword.value
-    var logIn = false
+    let logInName = userName.value
+    let logInPassword = signinPassword.value
+    let logIn = false
 
     for (let index = 0; index < allStudents.length; index++) {
         if ((logInName == allStudents[index].firstname||logInName==allStudents[index].email) && logInPassword == allStudents[index].password){
@@ -141,18 +141,24 @@ const editStudent=(index)=>{
 
 
 
-let getIndex;
-const editNow=()=>{
-    // getIndex = JSON.parse(localStorage.getItem("currentUser"))
-    // console.log(getIndex.firstname)
-    // firstName.value = editActive[getIndex].firstname
-    // lastName.value = editActive[getIndex].lastname
-    // stdEmail.value = editActive[getIndex].email
-    // stdEmail.value = editActive[getIndex].phonenumber
+getIndex = JSON.parse(localStorage.getItem("currentUser"))
+
+let a = getIndex.firstname;
+let b = getIndex.lastname;
+let c = getIndex.email;
+let d = getIndex.phonenumber;
+
+stdFirstName.value = a
+stdLastName.value = b
+stdEmail.value = c
+stdPhone.value = d 
+
+
+const editDone=()=>{ 
+    getIndex.firstname = stdFirstName.value;
+    getIndex.lastname = stdLastName.value;
+    getIndex.email = stdEmail.value;
+    getIndex.phonenumber = stdPhone.value ; 
+    localStorage.setItem('currentUser', JSON.stringify(getIndex))
     
-    // var editActive = JSON.parse(localStorage.getItem("studentDetails"))
-}
-
-const editDone=()=>{
-
 }

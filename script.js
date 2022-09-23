@@ -180,3 +180,6 @@ const editDone=()=>{
     alert("Profile Edited Successfully")
     window.location.href = "studentTable.html"
 }
+
+
+

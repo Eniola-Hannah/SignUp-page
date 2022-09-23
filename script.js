@@ -3,7 +3,7 @@ if (localStorage.studentDetails){
     allStudents = JSON.parse(localStorage.getItem("studentDetails"))
 }
 
-function addStudent(){
+const addStudent=()=>{
     let regexForName = /^[\w]{1,}$/
     let regexForEmail = /^(([\w]+)([@])([\w]+)([.])([a-zA-Z]{1,5})([.][\w]{1,5})?)$/
     let regexForPhonenumber = /^[\d]{11}$/
@@ -53,7 +53,7 @@ function addStudent(){
     }
 }
 
-function signIn(){
+const signIn =()=>{
     let logInName = userName.value
     let logInPassword = signinPassword.value
     let logIn = false
@@ -83,30 +83,35 @@ const loadStudent=()=>{
     myTable.innerHTML = ""
     // had to brought the header here coz, the header keeps disappearing if left in the html
     myTable.innerHTML = `
-        <tr>
-            <td>S/N</td>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Email</td>
-            <td>Phone Number</td>
-            <td>Matric Number</td>
-            <td>Actions</td>
-        </tr>
+        <thead class="thead-dark">
+            <tr>
+                <th>S/N</td>
+                <th>First_Name</td>
+                <th>Last_Name</td>
+                <th>Email</td>
+                <th>Phone_Number</td>
+                <th>Matric_Number</td>
+                <th>Actions</td>
+            </tr>
+        </thead>
     `
     allStudents.map((student,index)=>{
         myTable.innerHTML += `
-        <tr>
-            <td> ${index+1}</td>
-            <td>${student.firstname}</td>
-            <td>${student.lastname}</td>
-            <td>${student.email}</td>
-            <td>${student.phonenumber}</td>
-            <td>${student.matricNumber}</td>
-            <td>
-                <button class="btn btn-danger" onclick="deleteStudent(${index})"> Delete</button>
-                <button class="btn btn-primary" onclick="editStudent(${index})"> Edit</button>
-            </td> 
-        </tr>`
+        <tbody>
+            <tr>
+                <td> ${index+1}</td>
+                <td>${student.firstname}</td>
+                <td>${student.lastname}</td>
+                <td>${student.email}</td>
+                <td>${student.phonenumber}</td>
+                <td>${student.matricNumber}</td>
+                <td>
+                    <button class="btn btn-danger" onclick="deleteStudent(${index})"> Delete</button>
+                    <button class="btn btn-primary" onclick="editStudent(${index})"> Edit</button>
+                </td> 
+            </tr>
+        </tbody>
+    `
     })
 }
 

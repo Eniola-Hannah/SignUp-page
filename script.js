@@ -114,7 +114,7 @@ const loadStudent=()=>{
 currentUserI = JSON.parse(localStorage.getItem("currentUserIndex"))
 const deleteStudent =(index)=>{
     if (currentUserI == index) {
-        confirmDeleteStudent = confirm("DANGEROUS OPERATION!!! \nDO YOU REALLY WANTS TO DELETE THIS STUDENT???")
+        confirmDeleteStudent = confirm("DANGEROUS OPERATION!!! \nDO YOU REALLY WANTS TO DELETE YOUR PROFILE???")
         if (confirmDeleteStudent==true){
             let filteredStudent = allStudents.filter((_, ind) => (index != ind))
             allStudents = filteredStudent
@@ -172,5 +172,6 @@ const editDone=()=>{
     }
     bigArray[index]=getIndex
     localStorage.studentDetails = JSON.stringify(bigArray)
-    console.log(bigArray)
+    alert("Profile Edited Successfully")
+    window.location.href = "studentTable.html"
 }

@@ -161,4 +161,16 @@ const editDone=()=>{
     getIndex.phonenumber = stdPhone.value ; 
     localStorage.setItem('currentUser', JSON.stringify(getIndex))
     
+    
+    let bigArray = JSON.parse(localStorage.studentDetails)
+
+    let index;
+    for(i in bigArray){
+        if(bigArray[i].email == getIndex.email){
+            index =i 
+        }
+    }
+    bigArray[index]=getIndex
+    localStorage.studentDetails = JSON.stringify(bigArray)
+    console.log(bigArray)
 }

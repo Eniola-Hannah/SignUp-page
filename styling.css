@@ -1,0 +1,10 @@
+body{
+    background-color: gainsboro;
+    font-size: x-large; 
+}
+header{
+    height: 10vh;
+}
+a{
+    text-decoration: none;
+}

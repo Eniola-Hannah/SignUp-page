@@ -78,6 +78,28 @@ const signIn =()=>{
     signinPassword.value = ""
 }
 
+const searchStudent=()=>{
+    let filteredStudent = allStudents.filter((_, index)=>(index==stdIndex.value))
+    console.log(filteredStudent)
+    let student = filteredStudent[0]
+    searchTable.innerHTML += `
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>${student.firstname}</td>
+            <td>${student.lastname}</td>
+            <td>${student.email}</td>
+            <td>${student.phonenumber}</td>
+            <td>${student.matricNumber}</td>
+            <td>
+                <button class="btn btn-danger" onclick="deleteStudent()"> Delete</button>
+                <button class="btn btn-primary" onclick="editStudent()"> Edit</button>
+            </td> 
+        </tr>
+    </tbody>
+    `
+}
+
 const loadStudent=()=>{
     // onclick of function delete, let it assigned the table empty first before loading the new element
     myTable.innerHTML = ""
@@ -180,5 +202,4 @@ const editDone=()=>{
     alert("Profile Edited Successfully")
     window.location.href = "studentTable.html"
 }
-
 

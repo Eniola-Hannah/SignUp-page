@@ -1,6 +1,10 @@
 body{
     background-image: url(image/IMG-20210919-WA0063.jpg);
 }
+a{
+    text-decoration: none;
+    color: skyblue;
+}
 #bigDiv{
     background-color: blue;
     padding: 15px;

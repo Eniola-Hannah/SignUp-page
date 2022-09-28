@@ -79,25 +79,27 @@ const signIn =()=>{
 }
 
 const searchStudent=()=>{
-    let filteredStudent = allStudents.filter((_, index)=>(index==stdIndex.value))
-    console.log(filteredStudent)
-    let student = filteredStudent[0]
-    searchTable.innerHTML += `
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>${student.firstname}</td>
-            <td>${student.lastname}</td>
-            <td>${student.email}</td>
-            <td>${student.phonenumber}</td>
-            <td>${student.matricNumber}</td>
-            <td>
-                <button class="btn btn-danger" onclick="deleteStudent()"> Delete</button>
-                <button class="btn btn-primary" onclick="editStudent()"> Edit</button>
-            </td> 
-        </tr>
-    </tbody>
-    `
+    let filteredStudent = allStudents.filter((std, _)=>(std.firstname==stdIndex.value))
+    
+    if(filteredStudent){
+        filteredStudent.map((std, index)=>{
+            searchTable.innerHTML += `
+            <tbody>
+                <tr>
+                    <td>${index+1}</td>
+                    <td>${std.firstname}</td>
+                    <td>${std.lastname}</td>
+                    <td>${std.email}</td>
+                    <td>${std.phonenumber}</td>
+                    <td>${std.matricNumber}</td>
+                </tr>
+            </tbody>
+            `
+        })
+    }else{
+        alert("No match found \nCheck the spelling correctly and try again")
+    }
+    
 }
 
 const loadStudent=()=>{
